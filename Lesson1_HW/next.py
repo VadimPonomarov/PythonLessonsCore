@@ -9,6 +9,9 @@ lst = [22, 3, 5, 2, 8, 2, -23, 8, 23, 5]
 print(f'List: {lst} min {min(lst)}')
 print(f'List: {lst} без дублікатів:  {list(set(lst))}')
 print(f'List: {lst} з кожним четвертим X:  {["X" if not ((i + 1) % 4 or i == 0) else v for i, v in enumerate(lst)]}')
+lst = [22, 3, 5, 2, 8, 2, -23, 8, 23, 5]
+lst[3:-1:4] = 'X'* len(lst[3:-1:4])
+print('Еще один вариант ', lst)
 
 
 # 2) вивести на екран пустий квадрат з "*" сторона якого вказана як агрумент функції
@@ -65,6 +68,9 @@ def menu():
                 print(f'List: {lst} без дублікатів:  {list(set(lst))}')
                 print(
                     f'List: {lst} з кожним четвертим X:  {["X" if not ((i + 1) % 4 or i == 0) else v for i, v in enumerate(lst)]}')
+                lst = [22, 3, 5, 2, 8, 2, -23, 8, 23, 5]
+                lst[3:-1:4] = 'X' * len(lst[3:-1:4])
+                print('Ще один варіант ', lst)
             case "2":
                 square_asterics(10)
             case "3":
