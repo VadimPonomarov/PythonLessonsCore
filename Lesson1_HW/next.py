@@ -48,12 +48,14 @@ def multiplication_table_():
 
 multiplication_table_()
 
+menu_choice = True
+
 
 def menu():
     input_val = None
-    menu_choice = True
 
     def set_input():
+        global menu_choice
         menu_choice = input('Зробіть свій вибір ... ')
         match menu_choice.strip():
             case "1":
@@ -71,16 +73,20 @@ def menu():
                 print('*' * 50)
                 multiplication_table_()
             case _:
-                menu_choice = False
                 print('There is nothing to do with the data ...')
+                print('The end !!!')
+                menu_choice = None
 
     def internal():
 
-        while True:
+        while bool(menu_choice):
             print('''
-            1 - 
-            2 -
-            3 -
+            1 - list = [22, 3,5,2,8,2,-23, 8,23,5]
+                    - знайти мін число
+                    - видалити усі дублікати
+                    - замінити кожне 4-те значення на 'X'
+            2 - вивести на екран пустий квадрат з "*" сторона якого вказана як агрумент функції
+            3 - вивести табличку множення за допомогою цикла while
             ''')
             set_input()
 
