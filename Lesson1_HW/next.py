@@ -29,20 +29,20 @@ def multiplication_table():
     line = []
     for i in range(1, 10):
         for j in range(1, 10):
-            line.append(f'{(i * j):4}')
+            line.append(f'{(i * j):3}')
         print(' '.join(line))
-        print('\n')
         line.clear()
 
 
 print('\n' * 3, 'Таблиця множення', '\n' * 3, '*' * 50)
 multiplication_table()
+print('*' * 50)
 
 
 def multiplication_table_():
     i = 1
     while (10-i):
-        print(''.join([f'{(i * j):4}' for j in range(1,10)]))
+        print(''.join([f'{(i * j):3}' for j in range(1,10)]))
         i+=1
 
 multiplication_table_()
