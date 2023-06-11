@@ -46,9 +46,7 @@ class Notebook():
         return set_res
 
     def get_max_value(self) -> list[NoteType]:
-        _max = None
-        for i in self.read_file():
-            _max = max(i['price'], float(_max)) if bool(_max) else i['price']
+        _max = max(map(float, [i['price'] for i in self.read_file()]))
         return self.get_filtered([{"price": _max}])
 
     def read_file(self) -> list[NoteType]:
@@ -69,6 +67,7 @@ class Notebook():
 notebook1 = Notebook()
 notebook1.add_item("Item1", 33)
 notebook1.add_item("Item2", 34)
+notebook1.add_item("Item3", 39)
 notebook1.add_item("Item3", 35)
 asteriks('Вивід всіх покупок')
 print("Notebook", notebook1)
