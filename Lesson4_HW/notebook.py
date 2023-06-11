@@ -45,11 +45,11 @@ class Notebook():
             set_res.append(i) if i not in set_res else False
         return set_res
 
-    def get_max_value(self) -> float:
+    def get_max_value(self) -> list[NoteType]:
         _max = None
         for i in self.read_file():
             _max = max(i['price'], float(_max)) if bool(_max) else i['price']
-        return _max
+        return self.get_filtered([{"price": _max}])
 
     def read_file(self) -> list[NoteType]:
         try:
