@@ -35,15 +35,10 @@ class Notebook():
         self.write_file()
 
     def get_filtered(self, measures: [dict]) -> list[NoteType]:
-        filtered_list = []
-        file_data = self.read_file()
-        for m in measures:
-            for i in file_data:
-                [filtered_list.append(i) for key, val in i.items() if key in m.keys() and i[key] == m[key]]
-        set_res = []
-        for i in filtered_list:
-            set_res.append(i) if i not in set_res else False
-        return set_res
+        res = []
+        for j in [i for i in self.read_file()]:
+            [res.append(j) for k, v in j.items() if {k: v} in measures]
+        return res
 
     def get_max_value(self) -> list[NoteType]:
         _max = max(map(float, [i.get('price') for i in self.read_file()]))
