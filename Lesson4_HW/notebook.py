@@ -26,7 +26,7 @@ class Notebook():
         self.write_file()
 
     def delete_by_id(self, _id: int) -> None:
-        self.__notes = [i for i in self.read_file() if i['id'] != _id]
+        self.__notes = [i for i in self.read_file() if i.get('id') != _id]
         self.write_file()
 
     def add_item(self, name: str, price: float) -> None:
@@ -46,7 +46,7 @@ class Notebook():
         return set_res
 
     def get_max_value(self) -> list[NoteType]:
-        _max = max(map(float, [i['price'] for i in self.read_file()]))
+        _max = max(map(float, [i.get('price') for i in self.read_file()]))
         return self.get_filtered([{"price": _max}])
 
     def read_file(self) -> list[NoteType]:
